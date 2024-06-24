@@ -2,6 +2,35 @@ import requests
 from elasticsearch import Elasticsearch
 import tiktoken
 
+
+#Q1. Running Elastic
+#Run Elastic Search 8.4.3, and get the cluster information. If you run it on localhost, this is how you do it:
+
+
+
+# Define the curl command
+curl_command = [
+    "curl",
+    "-k",
+    "-u",
+    "elastic:YoQuGAqak46kd0og-udK",
+    "https://localhost:9200",
+    "--cacert",
+    "/workspaces/ll-zoomcamp/elasticsearch-8.4.3/config/certs/http_ca.crt"
+]
+
+# Run the curl command
+result = subprocess.run(curl_command, capture_output=True, text=True)
+
+
+
+# Parse the JSON response
+response_json = json.loads(result.stdout)
+
+# Print the "name" from the response "42f05b9372a9a4a470db3b52817899b99a76ee73"
+print( "version.build_hash  : "+response_json["version"]["build_hash"])
+
+
 # Step 1: Fetch the FAQ data
 docs_url = 'https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-intro/documents.json?raw=1'
 docs_response = requests.get(docs_url)
