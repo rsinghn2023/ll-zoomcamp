@@ -13,7 +13,7 @@ curl_command = [
     "curl",
     "-k",
     "-u",
-    "elastic:YoQuGAqak46kd0og-udK",
+    "elastic:<>",
     "https://localhost:9200",
     "--cacert",
     "/workspaces/ll-zoomcamp/elasticsearch-8.4.3/config/certs/http_ca.crt"
